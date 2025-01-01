@@ -4,7 +4,6 @@ import styles from './Form.module.css'
 import React, { useState } from 'react'
 
 export default function Form() {
-    const [enableDuration, setEnableDuration] = useState(false)
     const {state, dispatch} = useAppContext();
     const newRoutine = {
         routine: "",
@@ -14,14 +13,13 @@ export default function Form() {
     }
     const [routine, setRoutine] = useState(newRoutine);
     const SelectDuration = (e) => setRoutine({...routine, duration:e.target.value.toLowerCase()})
-    // const radioButtons = document.querySelectorAll('input[type="radio"]');
-    // // radioButtons.forEach((radio)=>{
-    // //     radio.addEventListener("change", ()=>{
-    // //         setRoutine({...routine, duration:radio.value.toLowerCase()})
-    // //     })
-    // // })
+    const SelectFrequency = (e) => setRoutine({...routine, frequency:parseInt(e.target.value)})
+    const dateFormating = (input) => {
+        const date = new Date(input.target.value);
+        setRoutine({...routine, startDate:date.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'})})
+    }
     function AddRoutineHandler(){
-        alert('add routine')
+        console.log(routine)
     }
 
 
@@ -34,10 +32,16 @@ export default function Form() {
             }}/>
         </div>
         <div>
-            <label htmlFor="frequency">What is the frequency for this routine</label>
-            <input type="text" id="frequency" placeholder='eg. 2, 3 days' onChange={(e)=>{
-                setRoutine({...routine, frequency: e.target.value})
-            }}/>
+            <label htmlFor="frequency">How many days in the week do you want to do this?</label>
+            <div className={styles.radio_grp}>
+                <input type="radio" name="frequency" value={7} data-text="Daily" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={1} data-text="1 day" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={2} data-text="2 days" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={3} data-text="3 days" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={4} data-text="4 days" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={5} data-text="5 days" onChange={(e)=>SelectFrequency(e)}/>
+                <input type="radio" name="frequency" value={6} data-text="6 days" onChange={(e)=>SelectFrequency(e)}/>
+            </div>
         </div>
         <div>
             <label htmlFor="duration">Will the routine have a lifespan?</label>
@@ -47,16 +51,16 @@ export default function Form() {
             </div>
         </div>
         <div>
-            <label htmlFor="start-date">When do you want to start?</label>
+            <label htmlFor="start-date">When do you want to start this routine?</label>
             <input type="date" id="start-date" placeholder="" onChange={(e)=>{
-                setRoutine({...routine, startDate: e.target.value})
+                dateFormating(e)
             }}/>
         </div>
         <div className={`${routine.duration === "yes" ? styles.enabled: styles.disabled}`}>
-            <label htmlFor="stop-date" >When do you want to stop?</label>
+            <label htmlFor="stop-date" >When do you want to stop this routine?</label>
             <input type="date" id="stop-date" placeholder="" onChange={(e)=>{
-                setRoutine({...routine, startDate: e.target.value})
-            }} disabled={!enableDuration ? true : false}/>
+                setRoutine({...routine, stopDate: e.target.value})
+            }}/>
         </div>
         <div className={styles.btn_grp}>
             <Button onClick = {AddRoutineHandler}>

@@ -33,9 +33,3 @@ h1{
     background-color: #fff;
     color: var(--color-dark--0);
 }
-input[type ="date"]::-webkit-datetime-edit-text{
-    visibility: hidden;
-}
-input[type="date"]::-webkit-datetime-edit-fields{
-    visibility: hidden;
-}

@@ -25,6 +25,7 @@
 }
 .radio_grp{
     display: flex;
+    flex-wrap: wrap;
     gap: 10px;
 }
 .radio_grp input[type="radio"]{
@@ -33,6 +34,7 @@
     border-radius: 10px;
     border: 1px solid var(--color-light--1);
     background-color: #fff;
+    cursor: pointer;
 }
 .radio_grp input[type="radio"]::before{
     content: attr(data-text);
