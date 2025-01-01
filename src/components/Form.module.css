@@ -44,6 +44,9 @@
 .form .disabled{
     display: none;
 }
+.form .enabled{
+    display: flex;
+}
 
 .btn_grp{
     width: 100%;

@@ -13,17 +13,15 @@ export default function Form() {
         startDate: null
     }
     const [routine, setRoutine] = useState(newRoutine);
+    const radioButtons = document.querySelectorAll('input[type="radio"]');
+    radioButtons.forEach((radio)=>{
+        radio.addEventListener("change", ()=>{
+            setRoutine({...routine, duration:radio.value.toLowerCase()})
+        })
+    })
     function AddRoutineHandler(){
         alert('add routine')
     }
-    // const radioButtons = document.querySelectorAll('input[type="radio"]');
-    // radioButtons.forEach((radio)=>{
-    //    const radioId = radio.id;
-    //    const label = document.querySelector(`for=["${radioId}"]`)
-    //     if(radio.checked){
-    //         label.style.color = "red"
-    //     }
-    // })
 
 
   return (
@@ -53,7 +51,7 @@ export default function Form() {
                 setRoutine({...routine, startDate: e.target.value})
             }}/>
         </div>
-        <div className={`${!enableDuration ? styles.disabled : styles.enabled}`}>
+        <div className={`${routine.duration === "yes" ? styles.enabled: styles.disabled}`}>
             <label htmlFor="stop-date" >When do you want to stop?</label>
             <input type="date" id="stop-date" placeholder="" onChange={(e)=>{
                 setRoutine({...routine, startDate: e.target.value})
