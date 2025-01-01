@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Manrope:wght@200..800&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Doto:wght@100..900&family=Manrope:wght@200..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --color-brand--1: #BF40BF;
+    --color-brand--2: #40BF40;
+
+    --color-dark--0: #242a2e;
+    --color-dark--1: #2d3439    ;
+    --color-dark--2: #42484db3;
+    --color-light--1: #aaa;
+    --color-light--2: #ececec;
+    --color-light--3: #d6dee0;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.app{
+    height: 100vh;
+}
+h1{
+    font-family: montserrat, sans-serif;
+}
+.dark{
+    background-color: var(--color-dark--0);
+    color: var(--color-light--3);
+}
+.light{
+    background-color: #fff;
+    color: var(--color-dark--0);
+}
+input[type ="date"]::-webkit-datetime-edit-text{
+    visibility: hidden;
+}
+input[type="date"]::-webkit-datetime-edit-fields{
+    visibility: hidden;
+}

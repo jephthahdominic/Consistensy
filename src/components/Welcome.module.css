@@ -1,0 +1,31 @@
+.welcome{
+    height: 100vh;
+    background-color: #BF40BF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2px;
+    animation: appear 1.2s linear;
+}
+.welcome h2{
+    font-family: montserrat sans-serif;
+    font-size: 2rem;
+}
+.welcome p{
+    font-family: cursive sans-serif;
+    font-size: 1.5rem;
+}
+.welcome h1{
+    font-family: montserrat sans-serif;
+    font-size: 4rem;
+}
+.welcome h1 span{
+    color: var(--color-brand--2);
+}
+
+@keyframes appear {
+    0%{
+        opacity: 0;
+    }
+}
