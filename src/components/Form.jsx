@@ -13,12 +13,13 @@ export default function Form() {
         startDate: null
     }
     const [routine, setRoutine] = useState(newRoutine);
-    const radioButtons = document.querySelectorAll('input[type="radio"]');
-    radioButtons.forEach((radio)=>{
-        radio.addEventListener("change", ()=>{
-            setRoutine({...routine, duration:radio.value.toLowerCase()})
-        })
-    })
+    const SelectDuration = (e) => setRoutine({...routine, duration:e.target.value.toLowerCase()})
+    // const radioButtons = document.querySelectorAll('input[type="radio"]');
+    // // radioButtons.forEach((radio)=>{
+    // //     radio.addEventListener("change", ()=>{
+    // //         setRoutine({...routine, duration:radio.value.toLowerCase()})
+    // //     })
+    // // })
     function AddRoutineHandler(){
         alert('add routine')
     }
@@ -41,8 +42,8 @@ export default function Form() {
         <div>
             <label htmlFor="duration">Will the routine have a lifespan?</label>
             <div className={styles.radio_grp}>
-                <input type="radio" name="option" id="yes" value="Yes" data-text="Yes"/>
-                <input type="radio" name="option" id="no" value="No" data-text="No"/>
+                <input type="radio" name="option" id="yes" value="Yes" data-text="Yes" onChange={(e)=>SelectDuration(e)}/>
+                <input type="radio" name="option" id="no" value="No" data-text="No" onChange={(e)=>SelectDuration(e)}/>
             </div>
         </div>
         <div>
