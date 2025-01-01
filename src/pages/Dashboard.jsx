@@ -16,7 +16,7 @@ export default function Dashboard() {
       {status === 'loading' && <Loader/>}
       {status === 'loaded' && (
         <div className = {`${styles.app} ${theme==='light' ? 'light' : 'dark'}`}>
-          <button to="add_routine" className={styles.button} onClick={()=> navigate('add_routine')}>
+          <button to="add_routine" className={styles.button} onClick={()=> {dispatch({type:"openLoader"}); navigate('add_routine')}}>
             <IoAddOutline style={{fontSize:'3rem'}}/>
             Add Routine
           </button>        

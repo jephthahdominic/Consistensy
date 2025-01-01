@@ -3,12 +3,12 @@
     min-height: calc(100vh - 7rem);
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 3rem;
+    align-items: start;
+    padding: 1.5rem 1rem;
 }
 .wrapper {
     width: 100%;
-    padding: 3rem;
+    padding: 2rem;
     background-color: var(--color-light--2);
     color: #000;
     border-radius: 10px;

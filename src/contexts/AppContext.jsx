@@ -1,4 +1,4 @@
-import { createContext, useContext, useReducer } from "react"
+import { createContext, useContext, useEffect, useReducer } from "react"
 
 const AppContext = createContext()
 
@@ -10,15 +10,21 @@ const initialState = {
 function reducer(state, action){
     switch(action.type){
         case "openLoader":
-        return {
-            ...state, 
-            status: 'loading'
-        }
+            return {
+                ...state, 
+                status: 'loading'
+            }
         case "loaded":
-        return {
-            ...state,
-            status: 'loaded'
-        }
+            return {
+                ...state,
+                status: 'loaded'
+            }
+        case "addRoutine":
+            console.log(action.payload)
+            return {
+                ...state,
+                routines: [...state.routines, action.payload]
+            }
     }
 }
 

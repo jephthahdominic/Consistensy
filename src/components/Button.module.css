@@ -4,8 +4,9 @@
     margin-top: 1rem;
     border: none;
     background-color: var(--color-brand--2);
-    border-radius: 50px;
+    border-radius: 15px;
     font-family: Roboto;
     font-size: 1.2rem;
     cursor: pointer;
+    color: #fff;
 }

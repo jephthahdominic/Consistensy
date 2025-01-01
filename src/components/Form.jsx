@@ -3,23 +3,43 @@ import Button from './Button'
 import styles from './Form.module.css'
 import React, { useState } from 'react'
 
+function dateFormating(input){
+    const date = new Date(input.target.value);
+    const formattedDate = date.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'});
+    return formattedDate;
+}
+function timeFormating(input){
+    const timeValue = input.target.value;
+    const [hour, minute] = timeValue.split(":");
+    const date = new Date();
+    date.setHours(hour);
+    date.setMinutes(minute);
+    const formattedTime = date.toLocaleTimeString('en-US', {
+        hour:"numeric",
+        minute: "numeric",
+        hour12: true
+    });
+    return formattedTime;
+    
+    // setRoutine({...routine, time:date.toLocaleString('en-US', {hour:'2-digit', minute:'2-digit', second:'2-digit'})})
+}
+
 export default function Form() {
-    const {state, dispatch} = useAppContext();
+    const {dispatch} = useAppContext();
     const newRoutine = {
         routine: "",
         frequency: "",
         duration:"",
+        time: null,
         startDate: null
     }
     const [routine, setRoutine] = useState(newRoutine);
     const SelectDuration = (e) => setRoutine({...routine, duration:e.target.value.toLowerCase()})
     const SelectFrequency = (e) => setRoutine({...routine, frequency:parseInt(e.target.value)})
-    const dateFormating = (input) => {
-        const date = new Date(input.target.value);
-        setRoutine({...routine, startDate:date.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'})})
-    }
+
     function AddRoutineHandler(){
-        console.log(routine)
+        dispatch({type:"addRoutine", payload:routine});
+        setRoutine(newRoutine)
     }
 
 
@@ -29,6 +49,12 @@ export default function Form() {
             <label htmlFor="routine">What activity do you want to track?</label>
             <input type="text" placeholder='eg. Reading, exercise, gaming' value={routine.routine} onChange={(e)=>{
                 setRoutine({...routine, routine: e.target.value})
+            }}/>
+        </div>
+        <div>
+            <label htmlFor="time">What time during the day will you seperate for your routine?</label>
+            <input type="time" id='time' onChange={(e)=>{
+                setRoutine({...routine, time:timeFormating(e)})
             }}/>
         </div>
         <div>
@@ -53,13 +79,13 @@ export default function Form() {
         <div>
             <label htmlFor="start-date">When do you want to start this routine?</label>
             <input type="date" id="start-date" placeholder="" onChange={(e)=>{
-                dateFormating(e)
+                setRoutine({...routine, startDate:dateFormating(e)})
             }}/>
         </div>
         <div className={`${routine.duration === "yes" ? styles.enabled: styles.disabled}`}>
             <label htmlFor="stop-date" >When do you want to stop this routine?</label>
             <input type="date" id="stop-date" placeholder="" onChange={(e)=>{
-                setRoutine({...routine, stopDate: e.target.value})
+                setRoutine({...routine, stopDate: dateFormating(e)})
             }}/>
         </div>
         <div className={styles.btn_grp}>
