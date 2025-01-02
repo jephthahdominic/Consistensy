@@ -1,4 +1,5 @@
 .routine{
+    width: 100%;
     text-decoration: none;
     display: flex;
     gap: 40px;
