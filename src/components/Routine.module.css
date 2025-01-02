@@ -11,10 +11,9 @@
     font-family: manrope sans-serif;
     font-size: 1rem;
 }
-.routine a{
-    color: inherit;
-    color: var(--color-dark--2);
-    text-decoration: none;
+.routine h3{
+    color: var(--color-dark--1);
+    font-weight: 500;
 }
 .tickers{
     display: flex;
