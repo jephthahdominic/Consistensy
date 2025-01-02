@@ -35,7 +35,7 @@ h1{
 }
 .light{
     background-color: #fff;
-    color: var(--color-dark--0);
+    color: var(--color-dark--1);
 }
 .messageModal{
     position: absolute;
