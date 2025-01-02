@@ -21,7 +21,7 @@ export default function Dashboard() {
       {status === 'loading' ? <Loader/> : 
         <div className = {`${styles.app} ${theme==='light' ? 'light' : 'dark'}`}>
           <button to="add_routine" className={styles.button} onClick={()=> {dispatch({type:"openLoader"}); navigate('add_routine')}}>
-            <IoAddOutline style={{fontSize:'3rem'}}/>
+            <IoAddOutline style={{fontSize:'2rem'}}/>
             Add Routine
           </button>        
           <Routines />
