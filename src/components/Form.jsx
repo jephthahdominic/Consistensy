@@ -5,7 +5,7 @@ import styles from './Form.module.css'
 import React, { useState } from 'react'
 
 export default function Form() {
-    const {state, dispatch} = useAppContext();
+    const {dispatch} = useAppContext();
     const newRoutine = {
         routine: "",
         frequency: "",
@@ -75,13 +75,13 @@ export default function Form() {
         </div>
         <div>
             <label htmlFor="start-date">When do you want to start this routine?</label>
-            <input type="date" id="start-date" placeholder="" onChange={(e)=>{
+            <input type="date" id="start-date" name='start-date' placeholder="" onChange={(e)=>{
                 setRoutine({...routine, startDate:dateFormating(e)})
             }}/>
         </div>
         {routine.duration === "yes" && <div>
             <label htmlFor="stop-date" >When do you want to stop this routine?</label>
-            <input type="date" id="stop-date" placeholder="" onChange={(e)=>{
+            <input type="date" id="stop-date" name='start-date' placeholder="" onChange={(e)=>{
                 setRoutine({...routine, stopDate: dateFormating(e)})
             }}/>
         </div>}

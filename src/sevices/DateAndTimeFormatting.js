@@ -1,6 +1,12 @@
+const today = new Date();
+
 function dateFormating(input){
-    const date = new Date(input.target.value);
-    const formattedDate = date.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'});
+    if(input.target.name==="start-date"){
+        console.log(input.target.value)   
+        console.log(today.toUTCString)
+    }
+    const selectedDate = new Date(input.target.value);
+    const formattedDate = selectedDate.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'});
     return formattedDate;
 }
 function timeFormating(input){
