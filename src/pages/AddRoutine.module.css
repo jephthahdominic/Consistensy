@@ -10,7 +10,7 @@
 }
 .wrapper {
     width: 100%;
-    padding: 2rem;
+    padding: 1rem;
     background-color: var(--color-light--2);
     color: #000;
     border-radius: 10px;
