@@ -5,17 +5,22 @@ import { useTheme } from '../contexts/ThemeContext'
 import { useAppContext } from '../contexts/AppContext'
 import Loader from '../components/Loader'
 import SuccessMsg from '../components/SuccessMsg'
+import ErrorMsg from '../components/ErrorMsg'
 
 export default function AddRoutine(){
     const {theme} = useTheme();
-    const {state} = useAppContext();
-    const {showMessage, status} = state;
+    const {state, dispatch} = useAppContext();
+    const {success, status, error} = state;
+    useEffect(()=>{
+        dispatch({type:"openLoader"})
+    },[])
     
     return(
         <>
             {status === "loading" ? <Loader /> :
                 <div className={`${theme === "light" ? "light" : "dark"} ${styles.container}`}>
-                    {showMessage && <SuccessMsg />}
+                    {success && <SuccessMsg />}
+                    {error && <ErrorMsg />}
                     <div className={`${styles.wrapper}`}>
                         <h1>New Routine</h1>
                         <Form />

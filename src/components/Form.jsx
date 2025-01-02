@@ -1,31 +1,11 @@
 import { useAppContext } from '../contexts/AppContext'
+import { dateFormating, timeFormating } from '../sevices/DateAndTimeFormatting';
 import Button from './Button'
 import styles from './Form.module.css'
 import React, { useState } from 'react'
 
-function dateFormating(input){
-    const date = new Date(input.target.value);
-    const formattedDate = date.toLocaleDateString('en-US', {month: 'long', day:'numeric', year:'numeric'});
-    return formattedDate;
-}
-function timeFormating(input){
-    const timeValue = input.target.value;
-    const [hour, minute] = timeValue.split(":");
-    const date = new Date();
-    date.setHours(hour);
-    date.setMinutes(minute);
-    const formattedTime = date.toLocaleTimeString('en-US', {
-        hour:"numeric",
-        minute: "numeric",
-        hour12: true
-    });
-    return formattedTime;
-    
-    // setRoutine({...routine, time:date.toLocaleString('en-US', {hour:'2-digit', minute:'2-digit', second:'2-digit'})})
-}
-
 export default function Form() {
-    const {dispatch} = useAppContext();
+    const {state, dispatch} = useAppContext();
     const newRoutine = {
         routine: "",
         frequency: "",
@@ -38,8 +18,25 @@ export default function Form() {
     const SelectFrequency = (e) => setRoutine({...routine, frequency:parseInt(e.target.value)})
 
     function AddRoutineHandler(){
-        dispatch({type:"addRoutine", payload:routine});
-        setRoutine(newRoutine)
+        const inputs = document.querySelectorAll("form input");
+        inputs.forEach((input)=>{
+            if(!input.value){
+                input.style.border = "1px solid red"; 
+                throw new Error("Please fill in every field in the form"); 
+            }else{
+                input.style.border = "none"
+            }
+        })
+        if(!routine.frequency || !routine.duration) throw new Error("Please fill in every field in the form");
+    }
+    function submitData(){
+        try{
+            AddRoutineHandler()
+            dispatch({type:"addRoutine", payload:routine});
+            
+        }catch(err){
+            dispatch({type:"error"})
+        }
     }
 
 
@@ -82,14 +79,14 @@ export default function Form() {
                 setRoutine({...routine, startDate:dateFormating(e)})
             }}/>
         </div>
-        <div className={`${routine.duration === "yes" ? styles.enabled: styles.disabled}`}>
+        {routine.duration === "yes" && <div>
             <label htmlFor="stop-date" >When do you want to stop this routine?</label>
             <input type="date" id="stop-date" placeholder="" onChange={(e)=>{
                 setRoutine({...routine, stopDate: dateFormating(e)})
             }}/>
-        </div>
+        </div>}
         <div className={styles.btn_grp}>
-            <Button onClick = {AddRoutineHandler}>
+            <Button onClick = {()=>submitData()}>
                 Add Routine
             </Button>
         </div>

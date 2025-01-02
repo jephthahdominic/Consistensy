@@ -5,7 +5,7 @@ export default function Loader(){
     const {dispatch} = useAppContext()
     setTimeout(()=>{
         dispatch({type:"loaded"})
-    }, 2000)
+    }, 300)
     return(
         <div className={styles.loader}>
             <div className={styles.spinner}>

@@ -4,8 +4,9 @@ const AppContext = createContext()
 
 const initialState = {
     status: "loading",
-    showMessage: false,
-    routines: []
+    routines: [],
+    success: false,
+    error: false
 }
 
 function reducer(state, action){
@@ -31,13 +32,20 @@ function reducer(state, action){
             // }
             return {
                 ...state,
-                showMessage: true,
+                success: true,
+                error: false,
                 routines: [...state.routines, action.payload]
             }
         case "hideMessage":
             return{
                 ...state,
-                showMessage: false
+                success: false,
+                error: false
+            }
+        case "error":
+            return {
+                ...state,
+                error: true
             }
     }
 }
