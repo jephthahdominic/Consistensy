@@ -14,6 +14,7 @@
 .routine a{
     color: inherit;
     color: var(--color-dark--2);
+    text-decoration: none;
 }
 .tickers{
     flex: 1;
