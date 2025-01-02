@@ -4,6 +4,7 @@ const AppContext = createContext()
 
 const initialState = {
     status: "loading",
+    showMessage: false,
     routines: []
 }
 
@@ -21,9 +22,22 @@ function reducer(state, action){
             }
         case "addRoutine":
             console.log(action.payload)
+            // const data = action.payload;
+            // for(const key in data){
+            //     console.log(key, data[key]);
+            //     if(!data[key]){
+            //         console.log("crappy data")
+            //     }
+            // }
             return {
                 ...state,
+                showMessage: true,
                 routines: [...state.routines, action.payload]
+            }
+        case "hideMessage":
+            return{
+                ...state,
+                showMessage: false
             }
     }
 }

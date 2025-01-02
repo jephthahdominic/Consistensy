@@ -1,0 +1,27 @@
+.msg{
+    position: absolute;
+    top: 5px;
+    padding: 1rem 2rem;
+    background-color: #40bf40c2;
+    color: #fff;
+    border-radius: 10px;
+    font-family: Roboto;
+    font-size: 1.2rem;
+    animation: appear .5s linear;
+}
+@keyframes appear {
+    0%{
+        top: 0;
+        opacity: 0;
+    }
+    25%{
+        top: 1px;
+    }
+    75%{
+        top: 3px;
+    }
+    100%{
+        top: 5px;
+        opacity: 1;
+    }
+}

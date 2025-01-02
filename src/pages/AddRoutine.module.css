@@ -1,9 +1,11 @@
 .container{
     width: 100%;
+    position: relative;
     min-height: calc(100vh - 7rem);
     display: flex;
-    justify-content: center;
-    align-items: start;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     padding: 1.5rem 1rem;
 }
 .wrapper {
