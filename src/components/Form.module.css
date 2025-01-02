@@ -33,6 +33,7 @@
     gap: 10px;
 }
 .radio_grp input[type="radio"]{
+    width: 100%;
     appearance: none;
     padding: 10px 2rem;
     height: fit-content;
