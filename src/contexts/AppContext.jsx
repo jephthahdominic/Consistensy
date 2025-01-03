@@ -6,7 +6,8 @@ const initialState = {
     status: "loading",
     routines: [],
     success: false,
-    error: false
+    error: false,
+    errorMsg: null
 }
 
 function reducer(state, action){
@@ -45,7 +46,8 @@ function reducer(state, action){
         case "error":
             return {
                 ...state,
-                error: true
+                error: true,
+                errorMsg: action.payload
             }
     }
 }

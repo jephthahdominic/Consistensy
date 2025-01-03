@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import { useAppContext } from '../contexts/AppContext'
 import styles from './ErrorMsg.module.css'
 export default function ErrorMsg() {
-    const {dispatch} = useAppContext()
+    const {state, dispatch} = useAppContext();
+    const {errorMsg} = state
     useEffect(()=>{
         const id = setTimeout(() => {
             dispatch({type:"hideMessage"})
@@ -10,6 +11,6 @@ export default function ErrorMsg() {
         return () => clearTimeout(id)
     }, [])
   return (
-    <div className={`messageModal ${styles.error}`}>Please fill in Every field in the form</div>
+    <div className={`messageModal ${styles.error}`}>{errorMsg}</div>
   )
 }
