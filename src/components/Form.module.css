@@ -28,12 +28,13 @@
 }
 .radio_grp{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: auto;
+    grid-template-columns: auto auto auto auto;
+    gap: .5rem;
 }
 .radio_grp input[type="radio"]{
+    width: 100%;
     appearance: none;
-    padding: 10px 2rem;
+    
     height: fit-content;
     border-radius: 10px;
     border: 2px solid var(--color-light--1);
