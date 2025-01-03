@@ -15,7 +15,7 @@ function reducer(state, action){
         case "openLoader":
             return {
                 ...state, 
-                status: 'loading'
+                status: 'loading',
             }
         case "loaded":
             return {
