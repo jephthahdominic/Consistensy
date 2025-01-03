@@ -61,7 +61,7 @@ export default function Form() {
     <form action="" className={styles.form}>
         <div>
             <label htmlFor="routine">What activity do you want to track?</label>
-            <input type="text" placeholder='eg. Reading, exercise, gaming' onChange={(e)=>setRoutine({...routine, activity:e.target.value})}/>
+            <input type="text" placeholder='eg. Reading, exercise, gaming' onChange={(e)=>setRoutine({...routine, activity:e.target.value.toUpperCase()})}/>
         </div>
         <div>
             <label htmlFor="frequency">How many days in the week do you want to do this?</label>

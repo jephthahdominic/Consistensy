@@ -11,7 +11,7 @@ export default function Dashboard() {
   const {theme} = useTheme();
   const navigate = useNavigate();
   const {state, dispatch} =  useAppContext()
-  const {status, routines} = state;
+  const {status} = state;
   useEffect(()=>{
     dispatch({type:"openLoader"});
   },[])

@@ -11,9 +11,9 @@ export default function Routines() {
     <>
       <h1>Routines</h1>
       <section className={styles.routines}>
-        {data?.map((data)=>{
+        {data?.map((data)=>(
           <Routine data={data}/>
-        })}
+        ))}
       </section>
     </>
   )
