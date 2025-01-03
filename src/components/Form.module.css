@@ -23,6 +23,9 @@
     background-color: #fff;
     font-size: 1rem;
 }
+.form input:focus{
+    border: 2px solid var(--color-brand--2);
+}
 .form input[type="text"], .form input[type="date"], .form input[type="time"]{
     width: 100%;
 }
