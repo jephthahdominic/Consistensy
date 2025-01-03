@@ -11,9 +11,9 @@ export default function Dashboard() {
   const {theme} = useTheme();
   const navigate = useNavigate();
   const {state, dispatch} =  useAppContext()
-  const {status} = state;
+  const {statuss} = state;
   useEffect(()=>{
-    dispatch({type:"openLoader"})
+    dispatch({type:"openLoader"});
   },[])
     
   return (
@@ -24,7 +24,7 @@ export default function Dashboard() {
             <IoAddOutline style={{fontSize:'2rem'}}/>
             Add Routine
           </button>        
-          <Routines />
+          <Routines/>
         </div>
       }
     </>

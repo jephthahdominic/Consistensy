@@ -1,17 +1,60 @@
+import { useAppContext } from '../contexts/AppContext';
 import Button from './Button'
 import styles from './Form.module.css'
 import React, { useState } from 'react'
 
+const formData = {
+    activity:"",
+    frequency:null,
+    startDate:null,
+    dailyTime:null
+}
+
 export default function Form() {
-    const [routine, setRoutine] = useState({})
+    const {dispatch} = useAppContext()
+    const [routine, setRoutine] = useState(formData);
+
     //form input handling
         function handleFrequencySelection(event){
             setRoutine({...routine, frequency:parseInt(event.target.value)})
         }
+
         function handleDateAndTime(){
+            let date = new Date()
+            let startDate = document.querySelector("input[type='date']");
+            let dailyTime = document.querySelector("input[type='time']");
+            if(startDate.value && dailyTime.value){
+                const selectedDate = new Date(startDate.value);
+                const [hours, minutes] = dailyTime.value.split(":");
+                selectedDate.setHours(hours);
+                selectedDate.setMinutes(minutes);
+
+                if(selectedDate < date){
+                    dispatch({type:"error", payload:"Invalid date"})
+                    throw new Error("Invalid date")
+                }else{
+                    setRoutine({
+                        ...routine, 
+                        startDate:selectedDate.toLocaleDateString(), 
+                        dailyTime:selectedDate.toLocaleTimeString()
+                    });
+                    console.log(routine)
+                }
+            }
 
         }
+        
     //form submission and error handling
+
+    function updateRoutine(){
+        for(const key in routine){
+            if(!routine[key]){
+                dispatch({type:"error", payload:"Please fill all the fields"})
+                throw new Error("Please fill all the fields")
+            }
+        }
+        dispatch({type:"addRoutine", payload:routine})
+    }
 
 
   return (
@@ -33,11 +76,15 @@ export default function Form() {
             </div>
         </div>
         <div>
-            <label htmlFor="start-date">What time during the day will you seperate for your routine?</label>
-            <input type="datetime-local" id='start-date' />
+            <label htmlFor="start-date">Select a date to start your routine.</label>
+            <input type="date" id='start-date' onChange={()=>handleDateAndTime()}/>
+        </div>
+        <div>
+            <label htmlFor="daily-time">Select a time for your daily routine.</label>
+            <input type="time" id='daily-time' onChange={()=>handleDateAndTime()}/>
         </div>
         <div className={styles.btn_grp}>
-            <Button disabled>
+            <Button onClick={updateRoutine}>
                 Add Routine
             </Button>
         </div>

@@ -23,14 +23,6 @@ function reducer(state, action){
                 status: 'loaded'
             }
         case "addRoutine":
-            console.log(action.payload)
-            // const data = action.payload;
-            // for(const key in data){
-            //     console.log(key, data[key]);
-            //     if(!data[key]){
-            //         console.log("crappy data")
-            //     }
-            // }
             return {
                 ...state,
                 success: true,
@@ -38,6 +30,7 @@ function reducer(state, action){
                 routines: [...state.routines, action.payload]
             }
         case "hideMessage":
+            console.log(state.routines)
             return{
                 ...state,
                 success: false,
