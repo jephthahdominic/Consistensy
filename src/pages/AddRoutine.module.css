@@ -4,9 +4,9 @@
     min-height: calc(100vh - 7rem);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: start;
     align-items: center;
-    padding: 1.5rem 1rem;
+    padding: 2rem 1rem;
 }
 .wrapper {
     width: 100%;
