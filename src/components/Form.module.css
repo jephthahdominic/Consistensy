@@ -39,6 +39,7 @@
     border: 2px solid var(--color-light--1);
     background-color: #fff;
     cursor: pointer;
+    text-align: center;
 }
 .radio_grp input[type="radio"]::before{
     content: attr(data-text);
