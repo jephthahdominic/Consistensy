@@ -29,6 +29,10 @@ h1{
     font-size: 2rem;
     padding: 1rem 0;
 }
+input{
+    font-size: 1rem;
+    font-family: roboto;
+}
 .dark{
     background-color: var(--color-dark--0);
     color: var(--color-light--3);

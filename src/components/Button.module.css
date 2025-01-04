@@ -1,6 +1,6 @@
 .cta {
     width: fit-content;
-    padding: 1rem 20px;
+    padding: 15px 20px;
     margin-top: 1rem;
     border: none;
     background-color: var(--color-brand--2);
@@ -9,4 +9,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
