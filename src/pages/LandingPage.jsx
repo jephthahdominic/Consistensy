@@ -14,7 +14,7 @@ export default function LandingPage() {
           our intuitive tracker is here to guide and support you every step of the way.
         </p>
         <div>
-          <p>To begin your journey of consistency, click the link below to sign up with your google account and get started.</p>
+          <p>To get started, click the link below to sign up with your google account.</p>
           <button>
             <img src={google} alt="google icon" width={30} height={30}/>
             Sign up with Google
