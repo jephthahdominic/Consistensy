@@ -32,7 +32,7 @@
     font-family: roboto;
 }
 .landingPage_main > p{
-    font-size: 24px;
+    font-size: 1.3rem;
     color: #f9f9f9;
 }
 .landingPage_main > div{
@@ -44,7 +44,7 @@
     border-radius: 10px;
 }
 .landingPage_main > div p{
-    font-size: 24px;
+    font-size: 1.3rem;
     color: var(--color-dark--0)
 }
 .landingPage_main button{
