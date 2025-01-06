@@ -6,6 +6,7 @@ import { useAppContext } from '../contexts/AppContext';
 import Loader from '../components/Loader';
 import Routines from '../components/Routines';
 import { useEffect } from 'react';
+import Header from '../components/Header';
 
 export default function Dashboard() {
   const {theme} = useTheme();
@@ -18,6 +19,7 @@ export default function Dashboard() {
     
   return (
     <>
+      <Header/>
       {status === 'loading' ? <Loader/> : 
         <div className = {`${styles.app} ${theme==='light' ? 'light' : 'dark'}`}>
           <button to="add_routine" className={styles.button} onClick={()=> {dispatch({type:"openLoader"}); navigate('add_routine')}}>

@@ -6,6 +6,7 @@ import { useAppContext } from '../contexts/AppContext'
 import Loader from '../components/Loader'
 import SuccessMsg from '../components/SuccessMsg'
 import ErrorMsg from '../components/ErrorMsg'
+import Header from '../components/Header'
 
 export default function AddRoutine(){
     const {theme} = useTheme();
@@ -17,6 +18,7 @@ export default function AddRoutine(){
     
     return(
         <>
+            <Header/>
             {status === "loading" ? <Loader /> :
                 <div className={`${theme === "light" ? "light" : "dark"} ${styles.container}`}>
                     {success && <SuccessMsg />}

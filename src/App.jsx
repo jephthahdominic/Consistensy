@@ -13,7 +13,6 @@ function App() {
     <AppContextProvider>
       <ThemeProvider>
         <BrowserRouter>
-            <Header/>
             <Routes>
               <Route path = "/" element={<Dashboard />} />
               <Route path = "/add_routine" element={<AddRoutine/>} />

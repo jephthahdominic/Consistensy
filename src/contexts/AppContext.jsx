@@ -57,7 +57,7 @@ function AppContextProvider({children}){
 function useAppContext(){
     const context = useContext(AppContext);
     if(context === undefined){
-        throw new Error("Context was called outside the provider")
+        throw new Error("Context was called outside the provider, consume the context in any component within the context provider.")
     }
     return context;
 }
