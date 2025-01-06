@@ -1,6 +1,7 @@
 import styles from './LandingPage.module.css'
 import appIcon from '../assets/Ruthine_green.png';
 import google from '../assets/icons8-google.png'
+import Login from '../components/Login';
 
 export default function LandingPage() {
   return (
@@ -13,13 +14,7 @@ export default function LandingPage() {
         <p>Whether you're looking to boost productivity, improve your health, or simply find balance in your daily life, 
           our intuitive tracker is here to guide and support you every step of the way.
         </p>
-        <div>
-          <p>To get started, click the link below to sign up with your google account.</p>
-          <button>
-            <img src={google} alt="google icon" width={30} height={30}/>
-            Sign up with Google
-          </button>
-        </div>
+        <Login />
       </main>
     </div>
   )

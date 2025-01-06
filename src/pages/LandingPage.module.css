@@ -27,6 +27,7 @@
     font-size: 52px;
     color: #f9f9f9;
     font-size: montserrat;
+    line-height: 1.5em;
 }
 .landingPage_main p{
     font-family: roboto;
@@ -34,6 +35,7 @@
 .landingPage_main > p{
     font-size: 1.3rem;
     color: #f9f9f9;
+    line-height: 1.5em;
 }
 .landingPage_main > div{
     display: flex;
