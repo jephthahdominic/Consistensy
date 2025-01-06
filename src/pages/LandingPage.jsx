@@ -9,7 +9,7 @@ export default function LandingPage() {
         <img src={appIcon} alt="icon"/>
       </header>
       <main className={styles.landingPage_main}>
-        <h1>Turn Habits into Happiness—Track Your Routine, Transform Your Life!</h1>
+        <h1>Turn Habits <br/>into Happiness—Track Your Routine, Transform Your Life!</h1>
         <p>Whether you're looking to boost productivity, improve your health, or simply find balance in your daily life, 
           our intuitive tracker is here to guide and support you every step of the way.
         </p>

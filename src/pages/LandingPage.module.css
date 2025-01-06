@@ -1,8 +1,8 @@
 .hero{
     width: 100%;
     padding: 1.5rem;
-    height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(../assets/bg1.jpg);
+    min-height: 100vh;
+    background: #bf40bf;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -19,26 +19,44 @@
     min-height: calc(100vh - 7rem);
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    gap: 2rem;
     margin-top: 10px;
     padding: 1rem 0 2rem;
 }
 .landingPage_main h1{
     font-size: 48px;
     color: #f9f9f9;
+    font-size: montserrat;
 }
 .landingPage_main p{
+    font-family: roboto;
+}
+.landingPage_main > p{
     font-size: 24px;
     color: #f9f9f9;
+}
+.landingPage_main > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #D9D9D9;
+    padding: 1rem;
+    border-radius: 10px;
+}
+.landingPage_main > div p{
+    font-size: 24px;
+    color: var(--color-dark--0)
 }
 .landingPage_main button{
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
     font-size: 1.5rem;
     border-radius: 10px;
+    border: none;
+    box-shadow: 0 0 3px 0;
 }
 .landingPage_main button img{
     position: absolute;
