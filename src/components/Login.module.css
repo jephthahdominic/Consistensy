@@ -34,8 +34,10 @@
     border-radius: 10px;
     display: flex;
     align-items: center;
+    justify-content: center;
     gap: 20px;
     font-size: 1.3rem;
     cursor: pointer;
     background-color: var(--color-light--2);
+    color: var(--color-dark--0);
 }
